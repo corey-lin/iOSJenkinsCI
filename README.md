@@ -1,2 +1,2 @@
 # iOSJenkinsCI
-Travis
+TravisCI
