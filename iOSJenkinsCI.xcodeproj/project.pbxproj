@@ -10,7 +10,6 @@
 		963F6FEC654200348C7646B8 /* Pods_iOSJenkinsCITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B018F513B9C62E421E2FF2AC /* Pods_iOSJenkinsCITests.framework */; };
 		A6367B3F1EAF592D001BAAA7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6367B3E1EAF592D001BAAA7 /* AppDelegate.swift */; };
 		A6367B411EAF592D001BAAA7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6367B401EAF592D001BAAA7 /* ViewController.swift */; };
-		A6367B441EAF592D001BAAA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6367B421EAF592D001BAAA7 /* Main.storyboard */; };
 		A6367B461EAF592D001BAAA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6367B451EAF592D001BAAA7 /* Assets.xcassets */; };
 		A6367B491EAF592D001BAAA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6367B471EAF592D001BAAA7 /* LaunchScreen.storyboard */; };
 		A6367B541EAF592D001BAAA7 /* iOSJenkinsCITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6367B531EAF592D001BAAA7 /* iOSJenkinsCITests.swift */; };
@@ -35,7 +34,6 @@
 		A6367B3B1EAF592D001BAAA7 /* iOSJenkinsCI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSJenkinsCI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6367B3E1EAF592D001BAAA7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6367B401EAF592D001BAAA7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A6367B431EAF592D001BAAA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6367B451EAF592D001BAAA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6367B481EAF592D001BAAA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6367B4A1EAF592D001BAAA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 			children = (
 				A6367B3E1EAF592D001BAAA7 /* AppDelegate.swift */,
 				A6367B401EAF592D001BAAA7 /* ViewController.swift */,
-				A6367B421EAF592D001BAAA7 /* Main.storyboard */,
 				A6367B451EAF592D001BAAA7 /* Assets.xcassets */,
 				A6367B471EAF592D001BAAA7 /* LaunchScreen.storyboard */,
 				A6367B4A1EAF592D001BAAA7 /* Info.plist */,
@@ -219,7 +216,6 @@
 			files = (
 				A6367B491EAF592D001BAAA7 /* LaunchScreen.storyboard in Resources */,
 				A6367B461EAF592D001BAAA7 /* Assets.xcassets in Resources */,
-				A6367B441EAF592D001BAAA7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,14 +350,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A6367B421EAF592D001BAAA7 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A6367B431EAF592D001BAAA7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A6367B471EAF592D001BAAA7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -541,6 +529,7 @@
 				A6367B5A1EAF592D001BAAA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A6367B5B1EAF592D001BAAA7 /* Build configuration list for PBXNativeTarget "iOSJenkinsCITests" */ = {
 			isa = XCConfigurationList;
@@ -549,6 +538,7 @@
 				A6367B5D1EAF592D001BAAA7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
