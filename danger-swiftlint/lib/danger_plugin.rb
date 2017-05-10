@@ -55,6 +55,7 @@ module Danger
       # Lint each file and collect the results
       issues = run_swiftlint(files, options)
 
+      puts "#{github.pr_diff.lines}"
       # Filter warnings and errors
       warnings = issues.select { |issue| issue['severity'] == 'Warning' }
       errors = issues.select { |issue| issue['severity'] == 'Error' }
