@@ -23,7 +23,7 @@ warn("The `Driver.xcscheme` was updated") if git.modified_files.include?("Driver
 
 # swiftlint plugin
 swiftlint.config_file = '.swiftlint.yml'
-swiftlint.lint_files
+swiftlint.lint_files inline_mode: true
 
 # commits message format check
 
