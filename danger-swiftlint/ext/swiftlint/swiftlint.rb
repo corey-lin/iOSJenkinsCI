@@ -24,6 +24,7 @@ class Swiftlint
 
     # Return true if swiftlint is installed or false otherwise
     def is_installed?
+      puts "swiftlint path = #{swiftlint_path}"
       File.exist?(swiftlint_path)
     end
 

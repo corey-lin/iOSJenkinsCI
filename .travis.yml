@@ -4,6 +4,7 @@ language: objective-c
 before_install:
   - sudo gem install bundler
   - bundle install
+  - which swiftlint
   - bundle exec danger
   - bundle exec pod repo update --silent
   - bundle exec pod install
