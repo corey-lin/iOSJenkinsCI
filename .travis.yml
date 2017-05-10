@@ -1,7 +1,8 @@
-osx_image: xcode8.1
-language: objective-c
+osx_image: xcode8.3
+language: swift
 
 before_install:
+  - ./install_swiftlint.sh
   - sudo gem install bundler
   - bundle install
   - which swiftlint
