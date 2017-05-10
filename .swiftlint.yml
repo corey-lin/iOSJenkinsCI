@@ -1,0 +1,4 @@
+excluded:
+  - Examples
+  - Pods
+  - R.generated.swift
