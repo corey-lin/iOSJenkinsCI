@@ -55,7 +55,7 @@ module Danger
       # Lint each file and collect the results
       issues = run_swiftlint(files, options)
 
-      puts "#{github.pr_diff.lines}"
+      #puts "#{github.pr_diff.lines}"
       # Filter warnings and errors
       warnings = issues.select { |issue| issue['severity'] == 'Warning' }
       errors = issues.select { |issue| issue['severity'] == 'Error' }
@@ -156,6 +156,10 @@ module Danger
       dir = "#{Dir.pwd}/"
       results.each do |r|
 	filename = r['file'].gsub(dir, "")
+      v = Violation(r['reason'], false, file: filename, line: r['line'])
+      puts "#{v.inspect}"
+      position = github.find_position_in_diff github.pr_diff.lines, v
+      puts "postion = #{position.inspect}"
 	send(method, r['reason'], file: filename, line: r['line'])
       end
     end
