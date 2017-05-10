@@ -12,4 +12,4 @@ before_install:
   - bundle exec pod install
 
 script:
-  - set -o pipefail && xcodebuild -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.1' -workspace iOSJenkinsCI.xcworkspace -scheme 'iOSJenkinsCI' -sdk iphonesimulator clean build test | xcpretty -c
+  - set -o pipefail && xcodebuild -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3' -workspace iOSJenkinsCI.xcworkspace -scheme 'iOSJenkinsCI' -sdk iphonesimulator clean build test | xcpretty -c

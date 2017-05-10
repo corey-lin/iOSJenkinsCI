@@ -157,10 +157,8 @@ module Danger
       results.each do |r|
 	filename = r['file'].gsub(dir, "")
       v = Violation.new(r['reason'], false, filename, r['line'])
-      puts "#{v.inspect}"
       position = find_position_in_diff github.pr_diff.lines, v
-      puts "postion = #{position.inspect}"
-	send(method, r['reason'], file: filename, line: r['line'])
+	send(method, r['reason'], file: filename, line: r['line']) unless position.nil?
       end
     end
 
