@@ -156,7 +156,7 @@ module Danger
       dir = "#{Dir.pwd}/"
       results.each do |r|
 	filename = r['file'].gsub(dir, "")
-      v = Violation.new(r['reason'], false, file: filename, line: r['line'])
+      v = Violation.new(r['reason'], false, filename, r['line'])
       puts "#{v.inspect}"
       position = find_position_in_diff github.pr_diff.lines, v
       puts "postion = #{position.inspect}"
