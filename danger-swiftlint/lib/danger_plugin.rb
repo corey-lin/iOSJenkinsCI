@@ -158,9 +158,8 @@ module Danger
 	filename = r['file'].gsub(dir, "")
       v = Violation.new(r['reason'], false, file: filename, line: r['line'])
       puts "#{v.inspect}"
-      #position = github.find_position_in_diff github.pr_diff.lines, v
-      puts "#{github.pr_diff.lines}"
-      position = github.send(:find_position_in_diff, github.pr_diff.lines, v)
+      puts "#{github.methods}"
+      position = github.find_position_in_diff github.pr_diff.lines, v
       puts "postion = #{position.inspect}"
 	send(method, r['reason'], file: filename, line: r['line'])
       end
