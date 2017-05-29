@@ -30,4 +30,6 @@ if is_break_name && !github.pr_json["fork"]
   warn("branch name doesn't follow the guideline")
 end
 
-print github.pr_json
+github.pr_json.each do |key, value|
+  puts "#{key}:#{value}"
+end
