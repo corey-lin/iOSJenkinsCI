@@ -29,3 +29,5 @@ is_break_name = format_check([github.branch_for_head], prefix_patterns)
 if is_break_name && !github.pr_json["fork"]
   warn("branch name doesn't follow the guideline")
 end
+
+echo github.pr_json
