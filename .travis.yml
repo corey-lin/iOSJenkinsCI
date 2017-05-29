@@ -2,7 +2,7 @@ osx_image: xcode8.3
 language: swift
 
 before_install:
-  - brew install swiftlint
+  - which swiftlint
   - sudo gem install bundler
   - bundle install
   - bundle exec danger
