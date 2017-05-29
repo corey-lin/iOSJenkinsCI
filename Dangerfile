@@ -1,6 +1,6 @@
 
 # swiftlint plugin
-swiftlint.lint_files inline_mode: true
+#swiftlint.lint_files inline_mode: true
 
 # commits message format check
 
@@ -13,7 +13,7 @@ def format_check(contents, patterns)
     !is_conform
   }
 end
-
+puts "start checking commit messages"
 commit_titles = ["feat","feature", "fix", "docs", "style", "refactor", "perf", "test", "chore"]
 title_patterns = commit_titles.map { |title| /^#{title}\(.*\)/ }
 messages = git.commits.map { |c| c.message }
@@ -22,6 +22,7 @@ if is_break_title
   warn("commit message doesn't follow the guideline")
 end
 
+puts "start checking branch names"
 # branch name format check
 branch_prefixes = ["feature_", "fix_", "refactor_", "merge_"]
 prefix_patterns = branch_prefixes.map { |prefix| /^#{prefix}/ }
