@@ -27,7 +27,8 @@ puts "start checking branch names"
 branch_prefixes = ["feature_", "fix_", "refactor_", "merge_"]
 prefix_patterns = branch_prefixes.map { |prefix| /^#{prefix}/ }
 is_break_name = format_check([github.branch_for_head], prefix_patterns)
-if is_break_name && !github.pr_json["fork"]
+#if is_break_name && !github.pr_json["fork"]
+if is_break_name
   warn("branch name doesn't follow the guideline")
 end
 
