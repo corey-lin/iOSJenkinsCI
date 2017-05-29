@@ -31,5 +31,5 @@ if is_break_name && !github.pr_json["fork"]
 end
 
 github.pr_json.each do |key, value|
-  puts "#{key}:#{value}"
+  puts "#{key}:#{value.to_s}"
 end
