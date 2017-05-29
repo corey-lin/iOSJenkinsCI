@@ -22,10 +22,10 @@ if is_break_title
   warn("commit message doesn't follow the guideline")
 end
 
-#puts "start checking branch names"
+puts "start checking branch names"
 ## branch name format check
-#branch_prefixes = ["feature_", "fix_", "refactor_", "merge_"]
-#prefix_patterns = branch_prefixes.map { |prefix| /^#{prefix}/ }
+branch_prefixes = ["feature_", "fix_", "refactor_", "merge_"]
+prefix_patterns = branch_prefixes.map { |prefix| /^#{prefix}/ }
 #is_break_name = format_check([github.branch_for_head], prefix_patterns)
 #if is_break_name && !github.pr_json["fork"]
 #  warn("branch name doesn't follow the guideline")
