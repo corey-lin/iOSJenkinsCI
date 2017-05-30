@@ -31,13 +31,16 @@ is_break_name = format_check([github.branch_for_head], prefix_patterns)
 if is_break_name
   warn("branch name doesn't follow the guideline")
 end
-
+puts github.pr_json.number
+puts github.pr_json["number"]
+puts github.pr_json.head.repo.fork
+puts github.pr_json.head.repo.fork_url
 github.pr_json.each do |key, value|
   puts "#{key}:#{value}"
   if key == "head"
     puts "start printing head"
-    value.each do |key2, values|
-      puts "#{key}:#{value}"
+    value.each do |key2, value2|
+      puts "#{key2}:#{value2}"
     end
   end
 end
