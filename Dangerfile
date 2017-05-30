@@ -33,5 +33,11 @@ if is_break_name
 end
 
 github.pr_json.each do |key, value|
-  puts "#{key}:#{value.to_s}"
+  puts "#{key}:#{value}"
+  if key == "head"
+    puts "start printing head"
+    value.each do |key2, values|
+      puts "#{key}:#{value}"
+    end
+  end
 end
