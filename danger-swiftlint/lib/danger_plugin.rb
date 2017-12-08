@@ -55,6 +55,7 @@ module Danger
       # Lint each file and collect the results
       issues = run_swiftlint(files, options)
 
+      #puts "#{github.pr_diff.lines}"
       # Filter warnings and errors
       warnings = issues.select { |issue| issue['severity'] == 'Warning' }
       errors = issues.select { |issue| issue['severity'] == 'Error' }
@@ -155,8 +156,62 @@ module Danger
       dir = "#{Dir.pwd}/"
       results.each do |r|
 	filename = r['file'].gsub(dir, "")
-	send(method, r['reason'], file: filename, line: r['line'])
+      v = Violation.new(r['reason'], false, filename, r['line'])
+      position = find_position_in_diff github.pr_diff.lines, v
+	send(method, r['reason'], file: filename, line: r['line']) unless position.nil?
       end
+    end
+
+    def find_position_in_diff(diff_lines, message)
+      range_header_regexp = /@@ -([0-9]+),([0-9]+) \+(?<start>[0-9]+)(,(?<end>[0-9]+))? @@.*/
+      file_header_regexp = %r{^diff --git a/.*}
+
+      pattern = "+++ b/" + message.file + "\n"
+      file_start = diff_lines.index(pattern)
+
+      return nil if file_start.nil?
+
+      position = -1
+      file_line = nil
+
+      diff_lines.drop(file_start).each do |line|
+        # If we found the start of another file diff, we went too far
+        break if line.match file_header_regexp
+
+        match = line.match range_header_regexp
+
+        # file_line is set once we find the hunk the line is in
+        # we need to count how many lines in new file we have
+        # so we do it one by one ignoring the deleted lines
+        if !file_line.nil? && !line.start_with?("-")
+          if file_line == message.line
+            file_line = nil if github.dismiss_out_of_range_messages && !line.start_with?("+")
+            break
+          end
+          file_line += 1
+        end
+
+        # We need to count how many diff lines are between us and
+        # the line we're looking for
+        position += 1
+
+        next unless match
+
+        range_start = match[:start].to_i
+        if match[:end]
+          range_end = match[:end].to_i + range_start
+        else
+          range_end = range_start
+        end
+
+        # We are past the line position, just abort
+        break if message.line.to_i < range_start
+        next unless message.line.to_i >= range_start && message.line.to_i < range_end
+
+        file_line = range_start
+      end
+
+      position unless file_line.nil?
     end
   end
 end

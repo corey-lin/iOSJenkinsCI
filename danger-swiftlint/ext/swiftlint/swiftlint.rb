@@ -24,6 +24,7 @@ class Swiftlint
 
     # Return true if swiftlint is installed or false otherwise
     def is_installed?
+      puts "swiftlint path = #{swiftlint_path}"
       File.exist?(swiftlint_path)
     end
 
@@ -52,7 +53,8 @@ class Swiftlint
 
     # Path where swiftlint should be found
     def swiftlint_path
-      File.expand_path(File.join(File.dirname(__FILE__), 'bin', 'swiftlint'))
+      #File.expand_path(File.join(File.dirname(__FILE__), 'bin', 'swiftlint'))
+      File.expand_path(File.join('/usr/local', 'bin', 'swiftlint'))
     end
   end
 end
