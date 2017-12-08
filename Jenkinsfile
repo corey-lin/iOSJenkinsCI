@@ -1,3 +1,7 @@
+
+properties([disableConcurrentBuilds()])
+properties([parameters([string(defaultValue: '1', description: 'Job Priority in Build Queue', name: 'BuildPriority')])])
+
 node('corey-lin') {
 
 // -- Get Active Jobs with 'Buildable' state
