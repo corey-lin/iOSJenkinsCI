@@ -11,15 +11,22 @@ node('corey-lin') {
 
   stage ('Checkout') {
     checkout scm
-    sh 'bundle install; bundle exec pod install'
+    shWithRvm 'bundle install; bundle exec pod install'
   }
 
   stage ('Build/Test') {
     echo "My branch is: ${env.BRANCH_NAME}"
     ansiColor('xterm') {
       timestamps {
-        sh 'set -o pipefail && xcodebuild -destination "platform=iOS Simulator,name=iPhone 7,OS=10.3" -workspace iOSJenkinsCI.xcworkspace -scheme "iOSJenkinsCI" -sdk iphonesimulator clean build test | xcpretty -c'
+        shWithRvm 'set -o pipefail && xcodebuild -destination "platform=iOS Simulator,name=iPhone 7,OS=10.3" -workspace iOSJenkinsCI.xcworkspace -scheme "iOSJenkinsCI" -sdk iphonesimulator clean build test | xcpretty -c'
       }
     }
   }
+}
+
+def shWithRVM(String command) {
+  sh """#!/bin/bash -l
+    rvm use 2.1.10
+    $command
+    """
 }
