@@ -1,4 +1,4 @@
-node {
+node('corey-lin') {
 
 // -- Get Active Jobs with 'Buildable' state
 //activeJobs = hudson.model.Hudson.instance.items.findAll{job -> job.isBuildable()}
